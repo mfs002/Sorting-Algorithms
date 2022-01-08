@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// T.C = O(N^2)
+// while loop will run atmax N times
+
+void bubble_sort(vector<int> &a, int N)
+{
+	while (true)
+	{
+		bool is_sorted = 0;
+		for (int i = 0; i < N; i++)
+		{
+			if (a[i] > a[i + 1]) swap(a[i], a[i + 1]), is_sorted = 1;
+		}
+		if (not is_sorted) break;
+	}
+}
+
+// T.C = O(N^2)
+
+void alternative_bubble_sort(vector<int> &v, int N)
+{
+	// Actually, only N-1 iterations are needed instead of N
+	for (int iter = 1; iter <= N; iter++)
+	{
+		bool is_sorted = 0;
+		for (int j = 0; j < N - iter; j++)
+		{
+			if (v[j] > v[j + 1]) swap(v[j], v[j + 1]), is_sorted = 1;
+		}
+		if (not is_sorted) break;
+	}
+}
+
+signed main()
+{
+	int t; cin >> t;
+	while (t--)
+	{
+		int N; cin >> N; vector<int> v(N);
+		for (int &i : v) cin >> i;
+
+		alternative_bubble_sort(v, N);
+		for (int i : v) cout << i << ' ';
+		cout << endl;
+	}
+}
