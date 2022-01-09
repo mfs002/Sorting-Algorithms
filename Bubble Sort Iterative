@@ -9,7 +9,7 @@ void bubble_sort(vector<int> &a, int N)
 	while (true)
 	{
 		bool is_sorted = 0;
-		for (int i = 0; i < N; i++)
+		for (int i = 0; i < N - 1; i++)
 		{
 			if (a[i] > a[i + 1]) swap(a[i], a[i + 1]), is_sorted = 1;
 		}
