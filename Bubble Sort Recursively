@@ -6,10 +6,13 @@ using namespace std;
 void bubble_sort(std::vector<int> &v, int n)
 {
 	if (n == 1) return;
+	
+	bool is_sorted = 0;
 	for (int i = 0; i < n - 1; i++)
 	{
-		if (v[i] > v[i + 1]) swap(v[i], v[i + 1]);
+		if (v[i] > v[i + 1]) swap(v[i], v[i + 1]), is_sorted = 1;
 	}
+	if (not is_sorted) return;
 	bubble_sort(v, n - 1);
 }
 
