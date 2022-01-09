@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// T.C. = O(N^2)
+
+void bubble_sort(int ind, vector<int> &v, int n)
+{
+	// Base Case
+	if (n == 1) return;
+
+	if (ind == n - 1)
+	{
+		bubble_sort(0, v, n - 1);
+		return;
+	}
+
+	if (v[ind] > v[ind + 1]) swap(v[ind], v[ind + 1]);
+	bubble_sort(ind + 1, v, n);
+}
+
+signed main()
+{
+	int t; cin >> t;
+	while (t--)
+	{
+		int n; cin >> n; vector<int> v(n);
+		for (int &i : v) cin >> i;
+
+		bubble_sort(0, v, n);
+		for (int &i : v) cout << i << ' ';
+		cout << endl;
+	}
+}
